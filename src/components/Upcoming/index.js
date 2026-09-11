@@ -64,34 +64,32 @@ class Upcoming extends Component {
   )
 
   renderMoviesView = () => {
-    const {moviesData, page, totalPages} = this.state
+    const {moviesData} = this.state
 
     return (
-      <>
-        <ul className="movies-list">
-          {moviesData.map(movie => (
-            <MovieCard key={movie.id} movieDetails={movie} />
-          ))}
-        </ul>
-        <Pagination
-          pageNo={page}
-          totalPages={totalPages}
-          onPrevPage={this.onPrevPage}
-          onNextPage={this.onNextPage}
-        />
-      </>
+      <ul className="movies-list">
+        {moviesData.map(movie => (
+          <MovieCard key={movie.id} movieDetails={movie} />
+        ))}
+      </ul>
     )
   }
 
   render() {
-    const {isLoading} = this.state
+    const {isLoading, page, totalPages} = this.state
 
     return (
       <div className="page-container">
         <NavBar />
         <div className="content-container">
-          <h1 className="page-heading">Upcoming Movies</h1>
+          <h1 className="page-heading">Upcoming</h1>
           {isLoading ? this.renderLoadingView() : this.renderMoviesView()}
+          <Pagination
+            pageNo={page}
+            totalPages={totalPages}
+            onPrevPage={this.onPrevPage}
+            onNextPage={this.onNextPage}
+          />
         </div>
       </div>
     )

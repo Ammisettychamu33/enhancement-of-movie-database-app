@@ -83,7 +83,7 @@ class SearchQuery extends Component {
   )
 
   renderResultsView = () => {
-    const {searchResults, page, totalPages} = this.state
+    const {searchResults} = this.state
     const query = this.getQueryParam()
 
     if (searchResults.length === 0) {
@@ -95,26 +95,16 @@ class SearchQuery extends Component {
     }
 
     return (
-      <>
-        <ul className="movies-list">
-          {searchResults.map(movie => (
-            <MovieCard key={movie.id} movieDetails={movie} />
-          ))}
-        </ul>
-        {totalPages > 1 && (
-          <Pagination
-            pageNo={page}
-            totalPages={totalPages}
-            onPrevPage={this.onPrevPage}
-            onNextPage={this.onNextPage}
-          />
-        )}
-      </>
+      <ul className="movies-list">
+        {searchResults.map(movie => (
+          <MovieCard key={movie.id} movieDetails={movie} />
+        ))}
+      </ul>
     )
   }
 
   render() {
-    const {isLoading} = this.state
+    const {isLoading, page, totalPages} = this.state
 
     return (
       <div className="page-container">
@@ -122,6 +112,12 @@ class SearchQuery extends Component {
         <div className="content-container">
           <h1 className="page-heading">Search Results</h1>
           {isLoading ? this.renderLoadingView() : this.renderResultsView()}
+          <Pagination
+            pageNo={page}
+            totalPages={totalPages}
+            onPrevPage={this.onPrevPage}
+            onNextPage={this.onNextPage}
+          />
         </div>
       </div>
     )

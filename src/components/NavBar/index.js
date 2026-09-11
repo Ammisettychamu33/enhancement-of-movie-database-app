@@ -53,7 +53,7 @@ class NavBar extends Component {
 
           <form className="search-form" onSubmit={this.onSearch}>
             <input
-              type="search"
+              type="text"
               className="search-input"
               placeholder="Search"
               value={searchInput}
