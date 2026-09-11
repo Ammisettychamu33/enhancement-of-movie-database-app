@@ -14,7 +14,7 @@ const MovieCard = props => {
     <li className="movie-card-item">
       <img src={posterUrl} alt={title} className="movie-poster" />
       <h1 className="movie-title">{title}</h1>
-      <p className="movie-rating">Rating: {voteAverage}</p>
+      <p className="movie-rating">{voteAverage}</p>
       <Link to={`/movie/${id}`}>
         <button type="button" className="view-details-btn">
           View Details

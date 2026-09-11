@@ -12,15 +12,15 @@ class NavBar extends Component {
   }
 
   onSearch = event => {
-    event.preventDefault()
+    if (event) {
+      event.preventDefault()
+    }
     const {searchInput} = this.state
     const {history, onSearchInputChange} = this.props
     if (onSearchInputChange) {
       onSearchInputChange(searchInput)
     }
-    if (searchInput.trim() !== '') {
-      history.push(`/search?query=${encodeURIComponent(searchInput)}`)
-    }
+    history.push(`/search?query=${encodeURIComponent(searchInput)}`)
   }
 
   render() {
@@ -59,7 +59,11 @@ class NavBar extends Component {
               value={searchInput}
               onChange={this.onChangeSearchInput}
             />
-            <button type="submit" className="search-button">
+            <button
+              type="submit"
+              className="search-button"
+              onClick={this.onSearch}
+            >
               Search
             </button>
           </form>
