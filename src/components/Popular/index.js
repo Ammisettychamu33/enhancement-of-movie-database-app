@@ -82,7 +82,6 @@ class Popular extends Component {
       <div className="page-container">
         <NavBar />
         <div className="content-container">
-          <h1 className="page-heading">Popular</h1>
           {isLoading ? this.renderLoadingView() : this.renderMoviesView()}
           <Pagination
             pageNo={page}

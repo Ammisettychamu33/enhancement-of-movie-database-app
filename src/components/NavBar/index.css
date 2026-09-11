@@ -52,7 +52,16 @@
   transition: color 0.2s ease;
 }
 
-.nav-link:hover {
+.nav-item-title {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0px;
+  display: inline;
+}
+
+.nav-link:hover .nav-item-title {
   color: #38bdf8;
 }
 

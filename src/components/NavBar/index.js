@@ -36,17 +36,17 @@ class NavBar extends Component {
           <ul className="navbar-menu">
             <li className="navbar-menu-item">
               <Link to="/" className="nav-link">
-                Popular
+                <h1 className="nav-item-title">Popular</h1>
               </Link>
             </li>
             <li className="navbar-menu-item">
               <Link to="/top-rated" className="nav-link">
-                Top Rated
+                <h1 className="nav-item-title">Top Rated</h1>
               </Link>
             </li>
             <li className="navbar-menu-item">
               <Link to="/upcoming" className="nav-link">
-                Upcoming
+                <h1 className="nav-item-title">Upcoming</h1>
               </Link>
             </li>
           </ul>
